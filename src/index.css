@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap");
+
+@import "tailwindcss";
+
+
+
+* {
+  font-family: "Playfair", serif;
+  font-weight: 500;
+}
+
+
+
+.nav {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(45px);
+}
+
+
+
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px; /* same as border-b-4 */
+  width: 100%;
+  background-color: #CB8723;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.animated-underline:hover::before {
+  transform: scaleX(1);
+}
