@@ -77,7 +77,7 @@ function Testimonials({ data }) {
         </Helmet>
         <div className="container py-10 m-auto">
           <motion.p
-            className="text-xl text-center py-4 text-orange-400"
+            className="text-xl text-center py-4 text-orange-700"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6, type: "spring" }}
@@ -104,7 +104,7 @@ function Testimonials({ data }) {
           </motion.h1>
 
           <motion.p
-            className="text-lg p-4 text-center text-gray-400"
+            className="text-lg p-4 text-center text-gray-600"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6, type: "spring" }}
@@ -148,40 +148,39 @@ function Testimonials({ data }) {
           ) : (
             <div>
               <div className="m-10 mx-auto lg:px-16 w-full h-[2px] items-center bg-orange-400 mb-4"></div>
-          
+
               <div className="w-full py-12 flex flex-wrap justify-around">
                 <iframe
                   width="360"
                   height="640"
-                  src="https://www.youtube.com/embed/CbZi1gf1WBg"
+                  src="https://www.youtube.com/embed/wom53bc7zbQ"
                   title="Client testimonial video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="rounded-2xl shadow-lg object-cover w-full max-w-xs aspect-[9/16]"
+                  className="rounded-2xl shadow-lg shadow-orange-600 object-cover w-full max-w-xs aspect-[9/16]"
                   loading="lazy"
                 ></iframe>
                 <iframe
                   width="360"
                   height="640"
-                  src="https://www.youtube.com/embed/CbZi1gf1WBg"
+                  src="https://www.youtube.com/embed/DTiSMus0dDc"
                   title="Client testimonial video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="rounded-2xl shadow-lg object-cover w-full max-w-xs aspect-[9/16]"
+                  className="rounded-2xl shadow-lg shadow-orange-600  object-cover w-full max-w-xs aspect-[9/16]"
                   loading="lazy"
                 ></iframe>
                 <iframe
                   width="360"
                   height="640"
-                  src="https://www.youtube.com/embed/CbZi1gf1WBg"
+                  src="https://www.youtube.com/embed/v_IrcCBM-h4"
                   title="Client testimonial video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="rounded-2xl shadow-lg object-cover w-full max-w-xs aspect-[9/16]"
+                  className="rounded-2xl shadow-lg shadow-orange-600  object-cover w-full max-w-xs aspect-[9/16]"
                   loading="lazy"
                 ></iframe>
               </div>
-    
             </div>
           )}
         </div>

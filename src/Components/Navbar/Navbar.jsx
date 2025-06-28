@@ -10,7 +10,7 @@ function Navbar() {
     <>
       {[
         { path: "/", label: "Home" },
-        { path: "/About", label: "About Us" },
+        { path: "/about", label: "About Us" },
         { path: "/service", label: "Services" },
         { path: "/carBooking", label: "Car Booking" },
         { path: "/gallery", label: "Gallery" },

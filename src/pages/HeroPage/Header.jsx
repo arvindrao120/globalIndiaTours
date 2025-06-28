@@ -86,13 +86,12 @@ function Header() {
             <iframe
               width="100%"
               height="315"
-              src="https://www.youtube.com/embed/Y7ZIa916qlo?si=8_-gWdEbBCkUcJtP"
+              src="https://www.youtube.com/embed/D2LIXG_E4AM?si=ZEDu-QhXjbUD4ks3"
               title="Travel inspiration video"
-             
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; "
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
-              className="rounded-3xl shadow-md shadow-white object-cover w-full max-w-2xl aspect-video"
+              className="rounded-3xl shadow-lg shadow-orange-200 object-cover w-full max-w-2xl aspect-video"
               loading="lazy"
               aria-label="Travel inspiration video"
             ></iframe>
