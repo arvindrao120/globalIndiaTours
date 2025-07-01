@@ -78,7 +78,7 @@ function Header() {
 
           {/* Right: Video (only on large screens and up) */}
           <motion.div
-            className=" lg:flex lg:w-1/2 justify-center items-center"
+            className=" w-full lg:flex lg:w-1/2 justify-center items-center"
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 1.2, type: "spring" }}
