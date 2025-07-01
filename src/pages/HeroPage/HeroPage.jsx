@@ -106,7 +106,7 @@ function HeroPage() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Testimonials data={true} />
+          <Testimonials data={true} showTitle={false} />
         </motion.section>
 
         <motion.section

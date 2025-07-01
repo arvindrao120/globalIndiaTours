@@ -45,7 +45,7 @@ const videoVariants = {
   }),
 };
 
-function Testimonials({ data }) {
+function Testimonials({ data,showTitle=true }) {
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -61,20 +61,22 @@ function Testimonials({ data }) {
         itemScope
         itemType="https://schema.org/CollectionPage"
       >
-        <Helmet>
-          <title>
-            Testimonials | Global India Tours – Client Reviews & Experiences
-          </title>
-          <meta
-            name="description"
-            content="Read real client testimonials and watch video reviews for Global India Tours. Discover why travelers trust us for Rajasthan and India tours, car rentals, and travel planning."
-          />
-          <meta
-            name="keywords"
-            content="testimonials, reviews, client feedback, Global India Tours, Rajasthan, India, travel experiences"
-          />
-          <link rel="canonical" href="https://yourdomain.com/testimonials" />
-        </Helmet>
+        {showTitle && (
+          <Helmet>
+            <title>
+              Testimonialss | Global India Tours – Client Reviews & Experiences
+            </title>
+            <meta
+              name="description"
+              content="Read real client testimonials and watch video reviews for Global India Tours. Discover why travelers trust us for Rajasthan and India tours, car rentals, and travel planning."
+            />
+            <meta
+              name="keywords"
+              content="testimonials, reviews, client feedback, Global India Tours, Rajasthan, India, travel experiences"
+            />
+            <link rel="canonical" href="https://yourdomain.com/testimonials" />
+          </Helmet>
+        )}
         <div className="container py-10 m-auto">
           <motion.p
             className="text-xl text-center py-4 text-orange-700"
