@@ -64,7 +64,7 @@ function Testimonials({ data,showTitle=true }) {
         {showTitle && (
           <Helmet>
             <title>
-              Testimonialss | Global India Tours – Client Reviews & Experiences
+              Testimonials | Global India Tours – Client Reviews & Experiences
             </title>
             <meta
               name="description"
