@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import ShowTour from "./ShowTour";
 import Meet from "./Meet";
@@ -18,6 +18,70 @@ const sectionVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, type: "spring" } },
 };
 
+// Mouse-following circle only, grows on hover
+function AnimatedMouseCircle() {
+  const [mouse, setMouse] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const [hovering, setHovering] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMouse({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
+    // Only grow on interactive elements
+    const interactiveSelector = "a, button, input, textarea, select, [tabindex]:not([tabindex='-1'])";
+    const handleMouseOver = (e) => {
+      if (e.target.closest("#mouse-follow-circle")) return;
+      if (e.target.closest(interactiveSelector)) setHovering(true);
+    };
+    const handleMouseOut = (e) => {
+      if (e.target.closest("#mouse-follow-circle")) return;
+      if (e.target.closest(interactiveSelector)) setHovering(false);
+    };
+    document.body.addEventListener("mouseover", handleMouseOver);
+    document.body.addEventListener("mouseout", handleMouseOut);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.body.removeEventListener("mouseover", handleMouseOver);
+      document.body.removeEventListener("mouseout", handleMouseOut);
+    };
+  }, []);
+
+  return (
+    <motion.div
+      id="mouse-follow-circle"
+      style={{
+        position: "fixed",
+        left: mouse.x - (hovering ? 40: 20),
+        top: mouse.y - (hovering ? 40: 20),
+        width: hovering ? 80 : 80,
+        height: hovering ? 80 : 80,
+        borderRadius: "50%",
+    
+        border:  "2px solid #CB8723",
+        zIndex: 9999,
+        pointerEvents: "none",
+        mixBlendMode: "multiply",
+        transition: "width 0.15s, height 0.15s, left 0.15s, top 0.15s",
+      }}
+      animate={{
+        left: mouse.x - (hovering ? 40 : 20),
+        top: mouse.y - (hovering ? 40 : 20),
+        width: hovering ? 80 : 40,
+        height: hovering ? 80 : 40,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 400,
+        damping: 25,
+      }}
+      aria-hidden="true"
+    />
+  );
+}
+
 function HeroPage() {
   useEffect(() => {
     window.scrollTo({
@@ -28,8 +92,10 @@ function HeroPage() {
 
   return (
     <>
+      {/* Only mouse-following circle */}
+      <AnimatedMouseCircle />
+
       <main className="w-full" aria-label="Global India Travels Home">
-        {/* Hero Section */}
         <Helmet>
           <title>
             Global India Tours – India Tour Packages, Luxury Car Rental & Travel
@@ -44,7 +110,6 @@ function HeroPage() {
         <Header />
         <WelcomeModal />
 
-        {/* About / Mission Section */}
         <motion.section
           aria-labelledby="journey-mission-heading"
           variants={sectionVariants}
@@ -55,7 +120,6 @@ function HeroPage() {
           <Meet heading={"Our Journey & Mission"} />
         </motion.section>
 
-        {/* Tours Section */}
         <motion.section
           aria-labelledby="tours-heading"
           variants={sectionVariants}
@@ -66,7 +130,6 @@ function HeroPage() {
           <ShowTour />
         </motion.section>
 
-        {/* Cars Section */}
         <motion.section
           aria-labelledby="cars-heading"
           variants={sectionVariants}
@@ -77,7 +140,6 @@ function HeroPage() {
           <ShowCars />
         </motion.section>
 
-        {/* How it Works Section */}
         <motion.section
           aria-labelledby="working-heading"
           variants={sectionVariants}
@@ -88,7 +150,6 @@ function HeroPage() {
           <Working />
         </motion.section>
 
-        {/* Pain Points Section */}
         <motion.section
           aria-labelledby="painpoints-heading"
           variants={sectionVariants}
@@ -119,7 +180,6 @@ function HeroPage() {
           <HeroForm />
         </motion.section>
 
-        {/* FAQ Section */}
         <motion.section
           aria-labelledby="faq-heading"
           variants={sectionVariants}
@@ -130,11 +190,6 @@ function HeroPage() {
           <Faq />
         </motion.section>
 
-        {/* Contact Section */}
-
-        {/* Testimonials Section */}
-
-        {/* WhatsApp Floating Button (aria-hidden for screen readers) */}
         <div aria-hidden="true">
           <WhatsAppBtn />
         </div>

@@ -3,6 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { motion } from "framer-motion";
 import Hero1Btn from "../../Components/Button/Hero1Btn";
 import Hero2Btn from "../../Components/Button/Hero2Btn";
+import { assets } from "../../assets/assets";
 
 function Header() {
   return (
@@ -13,12 +14,17 @@ function Header() {
         aria-labelledby="main-hero-heading"
       >
         {/* Background Layers */}
-        <div
-          className="absolute inset-0 bg-cover bg-center object-cover -z-20"
-          style={{ backgroundImage: "url('car.png')" }}
-          role="img"
-          aria-label="Luxury car background"
-        />
+        <div className="absolute inset-0 -z-20 w-full h-full overflow-hidden">
+          <img
+            src={assets.car}
+            alt="Luxury car background"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            draggable="false"
+            style={{ pointerEvents: "none", userSelect: "none" }}
+          />
+        </div>
 
         <Navbar />
 

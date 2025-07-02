@@ -1,6 +1,7 @@
 import logo from "./logo.png";
 import hero_photo from "./hero_photo.jpg";
 import about_photo from "./about_photo.jpg";
+import car  from "./car.png"
 
 
 // tour images
@@ -87,9 +88,9 @@ export const assets = {
   swift_dezire,
   crysta,
   xuv,
+  car,
  
 
-  // car
 };
 
 // tour data
