@@ -18,7 +18,7 @@ function Working() {
       <div className="container lg:px-20 text-center pt-3 m-auto">
         <h1
           id="why-choose-us-heading"
-          className="text-4xl md:text-5xl  font-bold text-[#4245AD] w-full md:py-5 py-3"
+          className="text-3xl lg:text-4xl  font-bold text-[#4245AD] w-full md:py-5 py-3"
         >
           Why Choose Us?
             <motion.div
@@ -50,10 +50,10 @@ function Working() {
             aria-hidden="true"
           />
           <div>
-            <h2 className="text-xl font-extrabold" itemProp="name">
+            <h2 className="text-lg font-extrabold" itemProp="name">
               Clean & Well-Maintained Vehicles
             </h2>
-            <p className="text-sm" itemProp="description">
+            <p  className="text-sm text-gray-600" itemProp="description">
               Our fleet includes sanitized, GPS-enabled vehicles that are
               regularly serviced to ensure your safety and comfort.
             </p>
@@ -69,10 +69,10 @@ function Working() {
             aria-hidden="true"
           />
           <div>
-            <h2 className="text-xl font-extrabold" itemProp="name">
+            <h2 className="text-lg font-extrabold" itemProp="name">
               Experienced & Verified Drivers
             </h2>
-            <p className="text-sm" itemProp="description">
+            <p className="text-sm text-gray-600" itemProp="description">
               Our professional drivers are trained, courteous, and knowledgeable
               about various routes and destinations.
             </p>
@@ -85,10 +85,10 @@ function Working() {
         >
           <FaRupeeSign className="text-5xl text-[#4245AD]" aria-hidden="true" />
           <div>
-            <h2 className="text-xl font-extrabold" itemProp="name">
+            <h2 className="text-lg font-extrabold" itemProp="name">
               Transparent Pricing
             </h2>
-            <p className="text-sm" itemProp="description">
+            <p className="text-sm text-gray-600" itemProp="description">
               We believe in honest pricing with no hidden charges, ensuring you
               get the best value for your money.
             </p>

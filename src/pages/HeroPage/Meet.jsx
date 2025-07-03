@@ -34,7 +34,7 @@ function Meet({ heading }) {
         <div className="container text-center m-auto">
           <motion.h1
             id="meet-heading"
-            className="text-4xl md:text-5xl font-extrabold text-[#4245AD]"
+            className="text-3xl lg:text-4xl font-extrabold text-[#4245AD]"
             itemProp="name"
             variants={headingVariants}
             initial="hidden"

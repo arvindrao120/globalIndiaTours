@@ -24,7 +24,7 @@ function HeroForm() {
           <p className="text-orange-400 text-xl">Get In Touch</p>
           <h1
             id="contact-us-heading"
-            className="text-4xl lg:text-5xl font-bold text-[#4245AD] w-full md:pt-5 "
+            className="text-3xl lg:text-4xl font-bold text-[#4245AD] w-full md:pt-5 "
           >
             Contact Us
           </h1>

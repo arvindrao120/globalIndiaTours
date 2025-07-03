@@ -42,7 +42,7 @@ function Showcars({ data }) {
           </p>
           <h1
             id="luxury-car-collection"
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#4245AD] w-full md:py-5 py-3"
+            className="text-3xl lg:text-4xl font-bold text-[#4245AD] w-full md:py-5 py-3"
           >
             Luxury Car Collection
             <motion.div

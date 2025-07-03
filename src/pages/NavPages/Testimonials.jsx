@@ -89,7 +89,7 @@ function Testimonials({ data,showTitle=true }) {
           </motion.p>
           <motion.h1
             id="testimonials-heading"
-            className="text-[#5539AF] text-center font-bold text-4xl xl:text-6xl  md:text-5xl"
+            className="text-[#5539AF] text-center font-bold text-3xl lg:text-4xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7, type: "spring" }}
@@ -149,9 +149,10 @@ function Testimonials({ data,showTitle=true }) {
             </motion.div>
           ) : (
             <div>
-              <div className="m-10 mx-auto lg:px-16 w-full h-[2px] items-center bg-orange-400 mb-4"></div>
+              <div className="m-10 mx-auto  lg:px-16 w-full h-[2px] items-center bg-orange-400 mb-4"></div>
 
               <div className="w-full py-12 flex flex-wrap justify-around">
+               
                 <iframe
                   width="360"
                   height="640"
@@ -159,7 +160,7 @@ function Testimonials({ data,showTitle=true }) {
                   title="Client testimonial video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="rounded-2xl shadow-lg shadow-orange-600 object-cover w-full max-w-xs aspect-[9/16]"
+                  className="rounded-2xl my-8 shadow-lg shadow-orange-600 object-cover w-full max-w-xs aspect-[9/16]"
                   loading="lazy"
                 ></iframe>
                 <iframe
@@ -169,7 +170,7 @@ function Testimonials({ data,showTitle=true }) {
                   title="Client testimonial video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="rounded-2xl shadow-lg shadow-orange-600  object-cover w-full max-w-xs aspect-[9/16]"
+                  className="rounded-2xl my-8 shadow-lg shadow-orange-600  object-cover w-full max-w-xs aspect-[9/16]"
                   loading="lazy"
                 ></iframe>
                 <iframe
@@ -179,7 +180,7 @@ function Testimonials({ data,showTitle=true }) {
                   title="Client testimonial video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="rounded-2xl shadow-lg shadow-orange-600  object-cover w-full max-w-xs aspect-[9/16]"
+                  className="rounded-2xl my-8 shadow-lg shadow-orange-600  object-cover w-full max-w-xs aspect-[9/16]"
                   loading="lazy"
                 ></iframe>
               </div>

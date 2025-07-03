@@ -22,12 +22,22 @@ const sectionVariants = {
 function AnimatedMouseCircle() {
   const [mouse, setMouse] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   const [hovering, setHovering] = useState(false);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
+    // Hide on mobile devices (width <= 768px)
+    const handleResize = () => {
+      setShow(window.innerWidth > 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
     const handleMouseMove = (e) => {
       setMouse({ x: e.clientX, y: e.clientY });
     };
-    window.addEventListener("mousemove", handleMouseMove);
+    if (show) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
 
     // Only grow on interactive elements
     const interactiveSelector = "a, button, input, textarea, select, [tabindex]:not([tabindex='-1'])";
@@ -39,38 +49,43 @@ function AnimatedMouseCircle() {
       if (e.target.closest("#mouse-follow-circle")) return;
       if (e.target.closest(interactiveSelector)) setHovering(false);
     };
-    document.body.addEventListener("mouseover", handleMouseOver);
-    document.body.addEventListener("mouseout", handleMouseOut);
+    if (show) {
+      document.body.addEventListener("mouseover", handleMouseOver);
+      document.body.addEventListener("mouseout", handleMouseOut);
+    }
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       document.body.removeEventListener("mouseover", handleMouseOver);
       document.body.removeEventListener("mouseout", handleMouseOut);
     };
-  }, []);
+  }, [show]);
+
+  if (!show) return null;
 
   return (
     <motion.div
       id="mouse-follow-circle"
       style={{
         position: "fixed",
-        left: mouse.x - (hovering ? 40: 20),
-        top: mouse.y - (hovering ? 40: 20),
-        width: hovering ? 80 : 80,
-        height: hovering ? 80 : 80,
+        left: mouse.x - (hovering ? 40 : 20),
+        top: mouse.y - (hovering ? 40 : 20),
+        width: hovering ? 80 : 40,
+        height: hovering ? 80 : 40,
         borderRadius: "50%",
-    
-        border:  "2px solid #CB8723",
+        border:   "2px solid #CB8723",
         zIndex: 9999,
         pointerEvents: "none",
         mixBlendMode: "multiply",
-        transition: "width 0.15s, height 0.15s, left 0.15s, top 0.15s",
+        transition: "width 0.15s, height 0.15s, left 0.15s, top 0.15s, border-color 0.15s",
       }}
       animate={{
         left: mouse.x - (hovering ? 40 : 20),
         top: mouse.y - (hovering ? 40 : 20),
         width: hovering ? 80 : 40,
         height: hovering ? 80 : 40,
+        borderColor:  "#CB8723",
       }}
       transition={{
         type: "spring",

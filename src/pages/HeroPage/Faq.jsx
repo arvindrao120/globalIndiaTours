@@ -44,7 +44,7 @@ function Faq() {
         <header>
           <h1
             id="faq-heading"
-            className="text-3xl md:text-5xl font-bold text-[#4642AD]  text-center"
+            className="text-3xl lg:text-4xl  font-bold text-[#4642AD]  text-center"
           >
             Frequently Asked Questions
           </h1>
@@ -63,7 +63,7 @@ function Faq() {
           {faqData.map((item, idx) => (
             <article
               key={idx}
-              className="border-b cursor-pointer px-4 shadow-2xl rounded-lg bg-white"
+              className=" cursor-pointer px-4 shadow-2xl rounded-lg bg-white"
               itemScope
               itemProp="mainEntity"
               itemType="https://schema.org/Question"
