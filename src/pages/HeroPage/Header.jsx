@@ -48,7 +48,7 @@ function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
             >
-              Discover The World With Us
+              Discover The India With Us
             </motion.h1>
 
             <motion.p
@@ -68,7 +68,7 @@ function Header() {
               transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
             >
               Plan your next journey today&nbsp;–&nbsp;I'm ready to{" "}
-              <span className="text-yellow-400">EXPLORE!</span>
+              <span className="text-yellow-400">EXPLORE !</span>
             </motion.p>
 
             <motion.div

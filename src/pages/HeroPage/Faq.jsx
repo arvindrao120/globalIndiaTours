@@ -63,13 +63,13 @@ function Faq() {
           {faqData.map((item, idx) => (
             <article
               key={idx}
-              className=" cursor-pointer px-4 shadow-2xl rounded-lg bg-white"
+              className=" cursor-pointer px-4 shadow-2xl rounded-b-3xl bg-white"
               itemScope
               itemProp="mainEntity"
               itemType="https://schema.org/Question"
             >
               <button
-                className="w-full text-left py-4 focus:outline-none flex justify-between items-center"
+                className="w-full text-left py-4 cursor-pointer  focus:outline-none flex justify-between items-center"
                 onClick={() => toggle(idx)}
                 aria-expanded={openIndex === idx}
                 aria-controls={`faq-answer-${idx}`}

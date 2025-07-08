@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { assets } from "../../assets/assets";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "react-router";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleClickOutside = (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        event.target.closest("button[aria-label='Open Menu']") === null
+      ) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
 
   const navItems = (
     <>
@@ -92,6 +109,7 @@ function Navbar() {
         <AnimatePresence>
           {menuOpen && (
             <motion.ul
+              ref={menuRef}
               className="flex flex-col gap-6 text-xl bg-[#1D1C39] text-white shadow-xl absolute right-4 top-20 rounded-xl px-8 py-6"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}

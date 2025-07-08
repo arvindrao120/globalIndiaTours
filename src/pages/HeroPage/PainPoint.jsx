@@ -60,13 +60,10 @@ function PainPoint() {
           id="painpoints-heading"
           className="text-center text-3xl lg:text-4xl  text-[#5352C7] font-bold mb-6"
         >
-          <div className="inline-flex items-center gap-2">
-            <FaExclamationTriangle
-              className="text-orange-400 text-4xl"
-              aria-hidden="true"
-            />
+          <div className=" items-center gap-2">
+            
             <h1>
-              Facing Travel Challenges?
+              Facing Travel Challenges ?
               <motion.div
                 className="px-4 mx-auto lg:px-16 w-28 h-[2px] items-center bg-orange-400 mb-4"
                 initial={{ scaleX: 0 }}

@@ -1,7 +1,5 @@
 import React from "react";
 function TestimonialsCard({ item }) {
-
-
   return (
     <>
       <div>
@@ -25,9 +23,7 @@ function TestimonialsCard({ item }) {
             </span>
           </div>
         </div>
-        <div>
-          
-        </div>
+        <div></div>
       </div>
     </>
   );
