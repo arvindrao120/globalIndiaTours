@@ -12,6 +12,7 @@ import WelcomeModal from "../WelcomeModal ";
 import Testimonials from "../NavPages/Testimonials";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { X } from "lucide-react";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -20,7 +21,10 @@ const sectionVariants = {
 
 // Mouse-following circle only, grows on hover
 function AnimatedMouseCircle() {
-  const [mouse, setMouse] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const [mouse, setMouse] = useState({
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+  });
   const [hovering, setHovering] = useState(false);
   const [show, setShow] = useState(true);
 
@@ -40,7 +44,8 @@ function AnimatedMouseCircle() {
     }
 
     // Only grow on interactive elements
-    const interactiveSelector = "a, button, input, textarea, select, [tabindex]:not([tabindex='-1'])";
+    const interactiveSelector =
+      "a, button, input, textarea, select, [tabindex]:not([tabindex='-1'])";
     const handleMouseOver = (e) => {
       if (e.target.closest("#mouse-follow-circle")) return;
       if (e.target.closest(interactiveSelector)) setHovering(true);
@@ -74,18 +79,19 @@ function AnimatedMouseCircle() {
         width: hovering ? 80 : 40,
         height: hovering ? 80 : 40,
         borderRadius: "50%",
-        border:   "2px solid #CB8723",
+        border: "2px solid #CB8723",
         zIndex: 9999,
         pointerEvents: "none",
         mixBlendMode: "multiply",
-        transition: "width 0.15s, height 0.15s, left 0.15s, top 0.15s, border-color 0.15s",
+        transition:
+          "width 0.15s, height 0.15s, left 0.15s, top 0.15s, border-color 0.15s",
       }}
       animate={{
         left: mouse.x - (hovering ? 40 : 20),
         top: mouse.y - (hovering ? 40 : 20),
         width: hovering ? 80 : 40,
         height: hovering ? 80 : 40,
-        borderColor:  "#CB8723",
+        borderColor: "#CB8723",
       }}
       transition={{
         type: "spring",
@@ -98,6 +104,8 @@ function AnimatedMouseCircle() {
 }
 
 function HeroPage() {
+  const [showNotice, setShowNotice] = useState(true);
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -107,6 +115,22 @@ function HeroPage() {
 
   return (
     <>
+      {showNotice && (
+        <div className="bg-gradient-to-r from-red-500 to-red-700 text-white px-6 py-3 flex items-center justify-between shadow-md">
+          <p className="text-lg sm:text-md text-center items-center ">
+           Self-driving car functionality is unavailable. Please avoid submitting related queries.
+
+
+          </p>
+          <button
+            onClick={() => setShowNotice(false)}
+            className="text-2xl font-bold leading-none focus:outline-none"
+          >
+            <X className="w-6 h-6 cursor-pointer"  />
+          </button>
+        </div>
+      )}
+
       {/* Only mouse-following circle */}
       <AnimatedMouseCircle />
 

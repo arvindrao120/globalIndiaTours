@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from './Components/Navbar/Navbar';
-import Footer from './Components/Footer/Footer';
-import { Outlet } from 'react-router-dom';
-import WhatsAppBtn from './Components/WhatsAppBtn/WhatsAppBtn';
+import React, { useState, useEffect } from "react";
+import Navbar from "./Components/Navbar/Navbar";
+import Footer from "./Components/Footer/Footer";
+import { Outlet } from "react-router-dom";
+import WhatsAppBtn from "./Components/WhatsAppBtn/WhatsAppBtn";
+
+
 
 // Animated Loader Component
 function AnimatedLoader() {
@@ -19,9 +21,25 @@ function AnimatedLoader() {
         </span>
       </div>
       <div className="mt-10 text-yellow-200 text-2xl tracking-widest font-semibold animate-pulse flex items-center gap-3">
-        <svg className="w-7 h-7 animate-spin" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" />
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+        <svg
+          className="w-7 h-7 animate-spin"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v8z"
+          />
         </svg>
         <span className="uppercase tracking-widest">Loading...</span>
       </div>
@@ -33,31 +51,41 @@ function AnimatedLoader() {
 // .animate-spin-slow { animation: spin 1.5s linear infinite; }
 
 function Root() {
+  
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Simulate loading for at least 1.2s, then show content
-    const timer = setTimeout(() => setLoading(false), 1200);
+    const timer = setTimeout(() => setLoading(false), 0);
     return () => clearTimeout(timer);
   }, []);
 
+
+
+
   return (
     <>
-      {loading && <AnimatedLoader />}
-      <div className={loading ? 'opacity-0 pointer-events-none select-none' : 'opacity-100 transition-opacity duration-700'}>
-        <header>
-          <Navbar />
-        </header>
-        <main aria-label="Main Content">
-          <Outlet />
-        </main>
-        <div aria-hidden="true">
-          <WhatsAppBtn />
+        {loading && <AnimatedLoader />}
+        <div
+          className={
+            loading
+              ? "opacity-0 pointer-events-none select-none"
+              : "opacity-100 transition-opacity duration-700"
+          }
+        >
+          <header>
+            <Navbar />
+          </header>
+          <main aria-label="Main Content">
+            <Outlet />
+          </main>
+          <div aria-hidden="true">
+            <WhatsAppBtn />
+          </div>
+          <footer>
+            <Footer />
+          </footer>
         </div>
-        <footer>
-          <Footer />
-        </footer>
-      </div>
     </>
   );
 }

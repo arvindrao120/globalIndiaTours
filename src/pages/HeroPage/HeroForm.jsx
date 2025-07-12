@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SeeMoreBtn from "../../Components/Button/SeeMoreBtn";
 import { MdOutlineMail } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
@@ -6,8 +6,11 @@ import { LuPhone } from "react-icons/lu";
 import ContactForm from "../../Components/ContactForm/ContactForm";
 import SocialMedia from "../../Components/SocialMedia";
 import { motion } from "framer-motion";
+import { X } from "lucide-react";
 
 function HeroForm() {
+  const [showNotice, setShowNotice] = useState(true);
+
   return (
     <section
       className="text-black"
@@ -118,6 +121,21 @@ function HeroForm() {
           </div>
         </div>
       </div>
+
+      {showNotice && (
+        <div className="bg-gradient-to-r from-red-500 to-red-700 mb-8 text-white px-6 w-full rounded-2xl lg:max-w-1/2 contain-content mx-auto py-3 flex items-center justify-center gap-6 lg:gap-12 xl:gap-24 shadow-md">
+          <p className="text-lg sm:text-md   ">
+            Self-driving car functionality is unavailable. Please avoid
+            submitting related queries.
+          </p>
+          <button
+            onClick={() => setShowNotice(false)}
+            className="text-2xl font-bold leading-none focus:outline-none"
+          >
+            <X className="w-6 h-6 cursor-pointer font-bold" />
+          </button>
+        </div>
+      )}
     </section>
   );
 }
