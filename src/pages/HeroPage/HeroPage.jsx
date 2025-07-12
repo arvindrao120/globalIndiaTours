@@ -116,7 +116,7 @@ function HeroPage() {
   return (
     <>
       {showNotice && (
-        <div className="bg-gradient-to-r from-red-500 to-red-700 text-white px-6 py-3 flex items-center justify-between shadow-md">
+        <div className="bg-gradient-to-r from-red-500 to-red-700 text-white px-6 py-3 w-full flex items-center justify-between shadow-md">
           <p className="text-lg sm:text-md text-center items-center ">
            Self-driving car functionality is unavailable. Please avoid submitting related queries.
 

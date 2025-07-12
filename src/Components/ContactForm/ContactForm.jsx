@@ -33,9 +33,9 @@ function ContactForm() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 200 }}
+      initial={{ opacity: 0, y: 200 }}
       transition={{ duration: 0.7 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className="text-center py-6 bg-white rounded-2xl shadow-2xl lg:px-10 w-full overflow-hidden"
       id="Contact"
